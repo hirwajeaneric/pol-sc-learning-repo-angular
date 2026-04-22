@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (ThemeService sets `dark` on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --color-polaris-teal: #0d9488;
+  --color-polaris-teal-dark: #0f766e;
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    @apply bg-slate-100 text-slate-900 antialiased;
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+}
+
+@layer utilities {
+  .polaris-card {
+    @apply rounded-[var(--radius-card)] border border-slate-200/90 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900;
+  }
+
+  .polaris-input {
+    @apply w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:bg-white focus:ring-2 focus:ring-teal-500/20 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:focus:bg-slate-900;
+  }
+
+  .polaris-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200;
+  }
+
+  .polaris-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-800 shadow-sm transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800;
+  }
+
+  .polaris-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-2 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800;
+  }
+
+  .polaris-btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-700 hover:bg-red-100 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300;
+  }
+}
