@@ -1,0 +1,1 @@
+export type RoleId = 'admin' | 'director' | 'hod' | 'teacher';
