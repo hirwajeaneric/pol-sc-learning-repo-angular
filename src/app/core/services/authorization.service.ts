@@ -1,5 +1,5 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { RoleId } from '../types/auth';
+import { RoleId } from '../types';
 
 const KNOWN_ROLES: readonly RoleId[] = ['admin', 'director', 'hod', 'teacher'];
 
@@ -10,7 +10,7 @@ const KNOWN_ROLES: readonly RoleId[] = ['admin', 'director', 'hod', 'teacher'];
 @Injectable({
   providedIn: 'root',
 })
-export class AuthzService {
+export class AuthorizationService {
   private readonly roleStorageKey = 'polaris-role';
 
   private readonly currentRole = signal<RoleId>('admin');

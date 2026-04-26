@@ -1,6 +1,5 @@
 import { computed, Injectable, signal } from "@angular/core";
-import { RoleId } from "../types/auth";
-import { ThisReceiver } from "@angular/compiler";
+import { RoleId } from "../types";
 
 @Injectable({ providedIn: 'root' })
 export class AuthSessionService {
